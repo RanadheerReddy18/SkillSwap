@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6366f1" />
+  <title>Dashboard – SkillSwap</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <div id="loader" role="status"><div class="loader-swap"><i></i><i></i><i></i></div><h2>Loading your space...</h2></div>
+  <noscript><style>#loader { display: none; }</style><p class="warn">SkillSwap needs JavaScript to work. Please enable it.</p></noscript>
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo"><h2>Skill<span>Swap</span></h2></a>
+    <nav aria-label="Dashboard">
+      <button type="button" data-tab="overview" class="active" aria-label="Overview" aria-current="page">🏠 <span>Overview</span></button>
+      <button type="button" data-tab="skills" aria-label="My Skills">🎯 <span>My Skills</span></button>
+      <button type="button" data-tab="matches" aria-label="Matches">🔍 <span>Matches</span></button>
+      <button type="button" data-tab="requests" aria-label="Requests">📩 <span>Requests</span><b id="reqBadge" class="badge" hidden>0</b></button>
+      <button type="button" data-tab="chat" aria-label="Chat">💬 <span>Chat</span></button>
+    </nav>
+    <button type="button" id="logout" class="logout" aria-label="Logout">🚪 <span>Logout</span></button>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><h1 id="greeting">Hello</h1><p class="muted" id="subGreeting"></p></div>
+      <label class="switch-row"><span id="availText">Available</span>
+        <span class="toggle"><input type="checkbox" id="availToggle" role="switch" /><i></i></span>
+      </label>
+    </div>
+
+    <section id="tab-overview" class="tab active">
+      <div class="stat-grid" id="statGrid"></div>
+      <div class="panel"><h3>Getting started</h3><ol class="steps">
+        <li>Add skills you can <b>teach</b> and want to <b>learn</b> in <i>My Skills</i>.</li>
+        <li>Check <i>Matches</i> and send a request to someone.</li>
+        <li>Once they accept, open <i>Chat</i> and plan your sessions.</li>
+      </ol></div>
+    </section>
+
+    <section id="tab-skills" class="tab">
+      <div class="panel">
+        <div class="field"><label for="bio">About you</label><textarea id="bio" rows="3" maxlength="300" placeholder="A short bio..."></textarea></div>
+        <div class="field"><label for="teachInput">Skills I can teach 🎓</label><div class="tag-box" id="teachBox"></div></div>
+        <div class="field"><label for="learnInput">Skills I want to learn 📚</label><div class="tag-box" id="learnBox"></div></div>
+        <p class="muted hint">Press Enter or comma after each skill. "Front-end" and "frontend" count as the same skill.</p>
+        <button type="button" class="btn" id="saveSkills">Save changes</button>
+      </div>
+      <details class="panel danger">
+        <summary>Delete my account</summary>
+        <p class="muted">This permanently removes your profile, requests and messages. It cannot be undone.</p>
+        <div class="field"><label for="delPass">Confirm with your password</label><input type="password" id="delPass" autocomplete="current-password" maxlength="200" /></div>
+        <button type="button" class="btn btn-red" id="delAcc">Delete permanently</button>
+      </details>
+    </section>
+
+    <section id="tab-matches" class="tab"><div id="matchGrid" class="grid"></div></section>
+
+    <section id="tab-requests" class="tab">
+      <div class="panel"><h3>Received</h3><div id="incoming"></div></div>
+      <div class="panel"><h3>Sent</h3><div id="outgoing"></div></div>
+    </section>
+
+    <section id="tab-chat" class="tab">
+      <div class="chat-layout">
+        <div class="chat-list" id="chatList"></div>
+        <div class="chat-window" id="chatWindow">
+          <div class="chat-empty">💬<p>Select a conversation.<br>Chats unlock after a request is accepted.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

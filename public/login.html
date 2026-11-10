@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6366f1" />
+  <title>Login – SkillSwap</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-side">
+      <div class="blob b1"></div><div class="blob b2"></div>
+      <div class="swap-visual" aria-hidden="true">
+        <div class="person"><div class="avatar">📷</div><span class="pill">Photography</span></div>
+        <div class="swap-arrow">🔁</div>
+        <div class="person"><div class="avatar">🎬</div><span class="pill">Video Editing</span></div>
+      </div>
+      <h1>Welcome back!</h1>
+      <p>Log in to see your matches and continue your conversations.</p>
+    </div>
+    <main class="auth-form-box">
+      <form class="auth-form" id="loginForm" novalidate>
+        <h2>Log in</h2>
+        <p class="sub">Good to see you again.</p>
+        <div class="error-msg" id="err" role="alert"></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="254" /></div>
+        <div class="field"><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Your password" autocomplete="current-password" maxlength="200" /><button type="button" class="eye" aria-label="Show password" aria-pressed="false">👁️</button></div>
+        <button class="btn" type="submit">Log In</button>
+        <p class="switch">New here? <a href="register.html">Create an account</a></p>
+        <p class="switch"><a href="index.html">← Back to home</a></p>
+      </form>
+    </main>
+  </div>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

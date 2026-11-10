@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6366f1" />
+  <title>Sign Up – SkillSwap</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-side">
+      <div class="blob b1"></div><div class="blob b2"></div>
+      <div class="swap-visual" aria-hidden="true">
+        <div class="person"><div class="avatar">👨‍💻</div><span class="pill">Java</span></div>
+        <div class="swap-arrow">🔁</div>
+        <div class="person"><div class="avatar">👩‍🎨</div><span class="pill">UI/UX</span></div>
+      </div>
+      <h1>Join SkillSwap</h1>
+      <p>Create your free account and start trading skills today.</p>
+    </div>
+    <main class="auth-form-box">
+      <form class="auth-form" id="registerForm" novalidate>
+        <h2>Create account</h2>
+        <p class="sub">It only takes a minute.</p>
+        <div class="error-msg" id="err" role="alert"></div>
+        <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" maxlength="60" /></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="254" /></div>
+        <div class="field"><label for="password">Password</label><input type="password" id="password" name="password" placeholder="At least 6 characters" autocomplete="new-password" maxlength="72" /><button type="button" class="eye" aria-label="Show password" aria-pressed="false">👁️</button></div>
+        <div class="field"><label for="confirm">Confirm password</label><input type="password" id="confirm" name="confirm" placeholder="Repeat password" autocomplete="new-password" maxlength="72" /></div>
+        <button class="btn" type="submit">Sign Up</button>
+        <p class="switch">Already have an account? <a href="login.html">Log in</a></p>
+        <p class="switch"><a href="index.html">← Back to home</a></p>
+      </form>
+    </main>
+  </div>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
